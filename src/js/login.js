@@ -1,15 +1,18 @@
 
 import validate from "./validation.js";
 
-const formLogin = document.getElementById("formLogin");
-const email = document.getElementById("email");
-const password = document.getElementById("password");
+const formLogin = document.getElementById("form");
+const email = document.getElementById("exampleInputEmail1");
+const password = document.getElementById("exampleInputPassword1");
+console.log("PRUEBAAAA")
 
 let loginUser = async (event) => {
     event.preventDefault();
+    console.log("email", email.value)
+    console.log("password", password.value)
     let validated = validate([email.value, password.value]);
     if (validated) {
-        let response = await fetch('http://127.0.0.1:8000/users/login/' , {
+        let response = await fetch("http://127.0.0.1:8000/users/login/" , {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
